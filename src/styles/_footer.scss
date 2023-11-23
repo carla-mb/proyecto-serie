@@ -1,0 +1,41 @@
+footer {
+    font-family: $footer-font;
+    font-size: 0.9rem;
+    background-color: $main-color;
+    color: $light-color;
+    text-align: center;
+    width: 100%;
+    padding: 2.5rem 2.5rem 1rem 2.5rem; 
+    hr {
+        border-top-color: $light-color;
+        opacity:0.5;
+        margin: 0.1rem 0 1rem 0;
+        &:last-of-type {
+            margin-top: 1.9rem;
+        }
+    }
+    p {
+        margin-bottom: 1.3rem;
+        text-align: left;
+    }
+    a {
+        color: $light-color;
+        opacity:0.5;
+        text-decoration: none;
+        &:hover {
+            color: $secondary-color-o;
+            opacity: 1;
+        }
+    }
+    @include md {
+        padding: 2.5rem;
+        font-size: 1rem;
+    }
+    @include lg {
+        font-size: 1.1rem;
+        padding: 2.9rem;
+        p:last-child {
+            font-size: 1rem;
+        }
+    }
+}

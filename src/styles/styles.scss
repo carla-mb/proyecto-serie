@@ -1,0 +1,339 @@
+@import 'variables';
+@import 'queries';
+@import 'header';
+@import 'main-nav';
+@import 'breadcrumb';
+@import 'multimedia';
+@import 'footer';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    min-height: 100vh;
+    background-color: $bg-color;
+}
+
+//estilos compartidos y cambios según pantalla
+main {
+    .container {
+        margin-bottom: 50px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        width: 100%;
+        h1 {
+            font-family: $brand-font;
+            padding: 20px 0;
+            font-size: 1.3rem;
+        }
+        h2 {
+            font-family: $brand-font;
+            padding: 10px 0;
+            font-size: 1.1rem;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 0.9rem;
+            a {
+                text-decoration: none;
+                font-weight: 800;
+                color: $secondary-color-o;
+                &:hover {
+                    color: $secondary-color-b;
+                }
+            }
+        }
+        @include sm {
+            max-width: 540px;
+            h2 {
+                font-size: 1.15rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        @include md {
+            max-width: 720px;
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
+        }
+        @include lg {
+            max-width: 960px;
+        }
+        @include xl {
+            max-width: 1140px;
+        }
+        @include xxl {
+            max-width: 1320px;
+        }
+    }
+    .divider {
+        border: 1px solid $secondary-color-o;
+        border-radius: 5px;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .divider.enlaces {
+        margin-top: 40px;
+    }
+}
+
+/*menú navegación home*/
+.home-menu {
+    padding: 0 40px;
+    ul {
+        list-style-type: none;
+        margin-bottom: 20px;
+        li {
+            position: relative;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            a {
+                text-decoration: none;
+                color: $secondary-color-o;
+                font-weight: bold;
+                &:before {
+                    content: ""; 
+                    display: inline-block; 
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('../media/icons/soccer-64px.png'); 
+                    background-size: contain; 
+                    position: absolute; 
+                    top: 50%; 
+                    transform: translateY(-50%);
+                    left: -1.6em; 
+
+                    //queries para pantallas mayores
+                    @media screen and (min-width: 768px) {
+                        width: 40px; 
+                        height: 40px; 
+                        left: -2em;
+                    }
+                }
+                &:hover {
+                    text-decoration: none;
+                    color: $secondary-color-b;   
+                    font-size: 1.1em;
+                    &:before {
+                        width: 40px; 
+                        height: 40px;
+                        left: -1.9em; 
+                    }
+                }  
+            }
+        }
+    }
+}
+
+.home {
+    .divider {
+        width: 80%;
+    }
+    p:last-child {
+        margin-top: 20px;
+    }
+    .button-container {
+        text-align: center;
+        margin-bottom: 30px;
+        button {
+            padding: 0.7rem;
+            font-family: $brand-font;
+            font-style: italic;
+            font-size: 0.8rem;
+            background-image: linear-gradient(to right, $secondary-color-b 63%, $secondary-color-y 63%, $secondary-color-y 64%, $secondary-color-r 64%);
+            color: $light-color;
+            border-radius: 5%;
+            border: none;
+            cursor: pointer; 
+            &:hover {
+                color: $secondary-color-y;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+/*submenú en categorias.html*/
+.submenu {
+    padding: 0 25px;
+    ul {
+        list-style-type: "→";
+        margin-bottom: 30px;
+        li {
+            padding: 5px 10px;
+            a {
+                text-decoration: none;
+                color: $main-color;
+                font-size: 1.1rem;
+                font-weight: 700; 
+                &:before {
+                    content: ""; 
+                    display: inline-block; 
+
+                    //queries para pantallas mayores
+                    @media screen and (min-width: 768px) {
+                        width: 40px; 
+                        height: 40px; 
+                        left: -2em;
+                    }
+                }
+                &:hover {
+                    text-decoration: none;
+                    color: $secondary-color-b; 
+                    font-weight: 400;  
+                }  
+            }
+        }
+    }
+}
+
+#lugares, #escenas, #curiosidades, #homages {
+    scroll-margin-top: 5.6rem; 
+    h2 {
+        padding-top: 1.5rem;
+    }
+    ul {
+        margin-bottom: 40px;
+        list-style-type: none;
+        li {
+            padding-bottom: 0.5rem;
+            a {
+                text-decoration: none;
+                color: $secondary-color-b;
+                box-shadow: inset 0 0 0 0 $secondary-color-r;
+                    padding: 0 0.25rem;
+                    margin: 0 -0.25rem;
+                    transition: color 0.3s ease-in-out, box-shadow .3s ease-in-out;
+                &:hover {
+                    color: $light-color;
+                    box-shadow: inset 300px 0 0 0 $secondary-color-r;
+                }
+            }
+        }
+    }
+}
+
+/*contenido en fuentes.html*/
+blockquote {
+    margin: 20px 0;
+    padding: 0 10px;
+    border-left: 2px solid $secondary-color-o;
+    font-style: italic;
+    p {
+        font-size: 0.8rem;
+    }  
+    cite {
+        font-style: normal;
+        font-size: 0.8rem;
+        span {
+            font-weight: bold;
+        }
+    }
+}
+.sources {
+    .divider {
+        margin: 40px auto 30px auto;
+    }
+    h2 {
+        text-decoration: underline;
+    }
+}
+
+/*contenido en sobre-la-web.html*/
+
+.about {
+    figure {
+        margin-bottom: 20px;
+    }
+    span {
+        font-style: italic;
+        font-weight: 900;
+        .fans {
+            font-size: 0.8rem;
+        }
+    } 
+}
+
+/*contenido en detalles*/
+
+.detalle {
+    figure {
+        margin-bottom: 20px;
+    }
+    ul {
+        margin: 0 20px;
+        list-style-type: none;
+        li {
+            font-size: 0.8rem;
+            padding-bottom: 15px;
+            a {
+                color: $secondary-color-o;
+                text-decoration: none;
+                font-weight: bold;
+                &:hover {
+                    color: $secondary-color-b;
+                }
+            }
+        }
+    }
+    .rodaje {
+        list-style-type: "\1F4A1";
+        li {
+            padding-left: 8px;
+        }
+    }
+    .locations {
+        list-style-type: "\1F3E0";
+        li {
+            padding-left: 8px;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    .enlaces-relacionados {
+        font-style: italic;
+        font-size: 1.1rem;
+        ul {
+            list-style-type: none;
+            padding-top: 20px;
+            li {
+                font-size: 0.9rem;
+                font-style: normal;
+                a {
+                    text-decoration: none;
+                    font-weight: 400;
+                    color: $secondary-color-b;
+                    box-shadow: inset 0 0 0 0 $secondary-color-r;
+                        padding: 0 0.25rem;
+                        margin: 0 -0.25rem;
+                        transition: color 0.3s ease-in-out, box-shadow .3s ease-in-out;
+                    &:hover {
+                        color: $light-color;
+                        box-shadow: inset 300px 0 0 0 $secondary-color-r;
+                    }
+                }
+            }
+        }
+    }
+}
