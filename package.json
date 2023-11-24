@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "source": "src/index.html",
   "browserslist": [
-    "defaults and fully supports es6-module",
-    "maintained node versions"
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
   ],
   "description": "",
   "scripts": {
@@ -15,7 +16,7 @@
     "clean": "rimraf dist .parcel-cache"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carla",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.10.0",
@@ -26,6 +27,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "tippy.js": "^6.3.7"
   }
 }

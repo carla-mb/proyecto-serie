@@ -4,6 +4,7 @@
 @import 'main-nav';
 @import 'breadcrumb';
 @import 'multimedia';
+@import 'laptop-styles';
 @import 'footer';
 
 * {
@@ -70,6 +71,7 @@ main {
             }
             h2 {
                 font-size: 1.2rem;
+                padding-bottom: 20px;
             }
             p {
                 font-size: 1.1rem;
@@ -77,12 +79,30 @@ main {
         }
         @include lg {
             max-width: 960px;
+            h1 {
+                padding: 35px 0 20px;
+                font-size: 1.65rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+
+            }
         }
         @include xl {
             max-width: 1140px;
         }
         @include xxl {
             max-width: 1320px;
+            h1 {
+                font-size: 2rem;
+                padding: 50px 0 30px;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
         }
     }
     .divider {
@@ -91,6 +111,9 @@ main {
         width: 90%;
         margin: auto;
         margin-bottom: 20px;
+        @include lg {
+            display: none;
+        }
     }
     .divider.enlaces {
         margin-top: 40px;
@@ -107,6 +130,12 @@ main {
             position: relative;
             padding: 10px 0;
             font-size: 0.95rem;
+            @include md {
+                font-size: 1.1rem;
+            }
+            @include lg {
+                font-size: 1.4rem;
+            }
             a {
                 text-decoration: none;
                 color: $secondary-color-o;
@@ -122,22 +151,28 @@ main {
                     top: 50%; 
                     transform: translateY(-50%);
                     left: -1.6em; 
-
-                    //queries para pantallas mayores
-                    @media screen and (min-width: 768px) {
+                    @include md {
                         width: 40px; 
                         height: 40px; 
-                        left: -2em;
+                        left: -1.8em;
                     }
                 }
                 &:hover {
                     text-decoration: none;
                     color: $secondary-color-b;   
                     font-size: 1.1em;
+                    @include md {
+                        font-size: inherit;
+                    }
                     &:before {
                         width: 40px; 
                         height: 40px;
                         left: -1.9em; 
+                        @include md {
+                            width: 50px; 
+                            height: 50px;
+                            left: -2.3em;
+                        }
                     }
                 }  
             }
@@ -155,6 +190,7 @@ main {
     .button-container {
         text-align: center;
         margin-bottom: 30px;
+        font-weight: bolder;
         button {
             padding: 0.7rem;
             font-family: $brand-font;
@@ -162,12 +198,24 @@ main {
             font-size: 0.8rem;
             background-image: linear-gradient(to right, $secondary-color-b 63%, $secondary-color-y 63%, $secondary-color-y 64%, $secondary-color-r 64%);
             color: $light-color;
-            border-radius: 5%;
             border: none;
             cursor: pointer; 
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
             &:hover {
-                color: $secondary-color-y;
-                font-weight: 800;
+                transform: scale(1.06);
+            }
+            @include sm { 
+                font-size: 1rem;
+            }
+            @include md { 
+                font-size: 1.5rem;
+            }
+            @include lg { 
+                font-size: 1.8rem;
+            }
+            @include xl { 
+                font-size: 2rem;
             }
         }
     }
@@ -186,21 +234,27 @@ main {
                 color: $main-color;
                 font-size: 1.1rem;
                 font-weight: 700; 
+                @include xl { 
+                    font-size: 1.3rem;
+                }
                 &:before {
                     content: ""; 
                     display: inline-block; 
-
-                    //queries para pantallas mayores
-                    @media screen and (min-width: 768px) {
-                        width: 40px; 
-                        height: 40px; 
-                        left: -2em;
+                    @include md { 
+                        height: 30px; 
+                        font-size: 1.2rem;
+                    }
+                    @include lg { 
+                        font-size: 1.3rem;
                     }
                 }
                 &:hover {
                     text-decoration: none;
                     color: $secondary-color-b; 
                     font-weight: 400;  
+                    @include lg { 
+                        font-weight: 700;
+                    }
                 }  
             }
         }
@@ -209,12 +263,16 @@ main {
 
 #lugares, #escenas, #curiosidades, #homages {
     scroll-margin-top: 5.6rem; 
+    @include lg {
+        scroll-margin-top: 6rem;
+    }
     h2 {
         padding-top: 1.5rem;
     }
     ul {
         margin-bottom: 40px;
         list-style-type: none;
+        font-size: 0.9rem;
         li {
             padding-bottom: 0.5rem;
             a {
@@ -227,8 +285,20 @@ main {
                 &:hover {
                     color: $light-color;
                     box-shadow: inset 300px 0 0 0 $secondary-color-r;
+                    @include md {
+                        box-shadow: inset 400px 0 0 0 $secondary-color-r;
+                    }
                 }
             }
+        }
+        @include sm {
+            font-size: 1rem;
+        }
+        @include md {
+            font-size: 1.1rem;
+        }
+        @include xxl {
+            font-size: 1.2rem;
         }
     }
 }
@@ -248,14 +318,15 @@ blockquote {
         span {
             font-weight: bold;
         }
-    }
-}
-.sources {
-    .divider {
-        margin: 40px auto 30px auto;
-    }
-    h2 {
-        text-decoration: underline;
+        @include sm {
+            font-size: 0.9rem;
+        }
+        @include md {
+            font-size: 1.05rem;
+        }
+        @include lg {
+            font-size: 1.15rem;
+        }
     }
 }
 
@@ -276,7 +347,7 @@ blockquote {
 
 /*contenido en detalles*/
 
-.detalle {
+.detalle, .sources {
     figure {
         margin-bottom: 20px;
     }
@@ -284,7 +355,7 @@ blockquote {
         margin: 0 20px;
         list-style-type: none;
         li {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             padding-bottom: 15px;
             a {
                 color: $secondary-color-o;
@@ -294,12 +365,26 @@ blockquote {
                     color: $secondary-color-b;
                 }
             }
+            @include sm {
+                font-size: 1rem;
+            }
+            @include md {
+                font-size: 1.1rem;
+            }
+            @include xxl {
+                font-size: 1.2rem;
+            }
         }
     }
     .rodaje {
         list-style-type: "\1F4A1";
+        padding-bottom: 20px;
         li {
             padding-left: 8px;
+        }
+        @include lg {
+            padding-left: 5%;
+            padding-bottom: 30px;
         }
     }
     .locations {
@@ -313,13 +398,24 @@ blockquote {
     }
     .enlaces-relacionados {
         font-style: italic;
-        font-size: 1.1rem;
+        @include lg {
+            padding-top: 45px; 
+        }
         ul {
             list-style-type: none;
             padding-top: 20px;
             li {
                 font-size: 0.9rem;
                 font-style: normal;
+                @include sm {
+                    font-size: 1rem;
+                }
+                @include md {
+                    font-size: 1.1rem;
+                }
+                @include xxl {
+                    font-size: 1.2rem;
+                }
                 a {
                     text-decoration: none;
                     font-weight: 400;
@@ -331,6 +427,9 @@ blockquote {
                     &:hover {
                         color: $light-color;
                         box-shadow: inset 300px 0 0 0 $secondary-color-r;
+                        @include md {
+                            box-shadow: inset 450px 0 0 0 $secondary-color-r;
+                        }
                     }
                 }
             }

@@ -25,7 +25,7 @@ figure {
         height: auto;
     }
     figcaption {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         a {
             color: $secondary-color-o;
             text-decoration: none;
@@ -33,6 +33,15 @@ figure {
             &:hover {
                 color: $secondary-color-b;
             }
+        }
+        @include sm {
+            font-size: 0.85rem;
+        }
+        @include lg {
+            font-size: 0.95rem;
+        }
+        @include xl {
+            font-size: 1.05rem;
         }
     }
 }

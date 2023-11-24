@@ -7,7 +7,8 @@ $('.carousel').slick({
     slidesToScroll: 3,
     autoplay: true,
     arrows: false,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
+    lazyLoad: 'ondemand',
     responsive: [
       {
         breakpoint: 1024,
@@ -27,7 +28,8 @@ $('.carousel').slick({
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          autoplaySpeed: 2000,
         }
       },
       {
@@ -46,7 +48,7 @@ $('.carousel').slick({
 document.addEventListener("DOMContentLoaded", function () {
   let randomButton = document.getElementById("randomButton");
 
-  let pages = ["lugares1.html", "escenas1.html", "escenas2.html", "curiosidades1.html", "homages1.html"];
+  let pages = ["bienvenidos-a-richmond.html", "football-is-life.html", "galletas-galletas-y-mas-galletas.html", "cinco-cosas-que-no-sabias-de-ted-lasso.html", "guinos-navidenos.html"];
 
   randomButton.addEventListener("click", function () {
     let randomIndex = Math.floor(Math.random() * pages.length);
@@ -54,4 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let randomPage = pages[randomIndex];
     location.href = randomPage;
   });
+});
+
+//tippy
+
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+
+tippy('#randomButton', {
+  content: 'Pst! Este botón te lleva a una página aleatoria :)',
+  arrow: false, 
+  animation: 'shift-away'
 });
